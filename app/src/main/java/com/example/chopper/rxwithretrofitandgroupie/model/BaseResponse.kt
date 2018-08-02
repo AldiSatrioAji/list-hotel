@@ -1,6 +1,6 @@
 package com.example.chopper.rxwithretrofitandgroupie.model
 
-data class Result(
+data class BaseResponse(
     val gender: String,
     val name: Name,
     val location: Location,
