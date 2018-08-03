@@ -1,6 +1,6 @@
 package com.example.chopper.rxwithretrofitandgroupie
 
-interface Presenter<in T : BaseView> {
+interface Presenter<T : BaseView> {
     fun attachView(t: T)
-    fun detachView(t: T)
+    fun detachView()
 }

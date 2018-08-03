@@ -1,13 +1,23 @@
 package com.example.chopper.rxwithretrofitandgroupie
 
+import io.reactivex.disposables.CompositeDisposable
+
 open class BasePresenter<T : BaseView> : Presenter<T> {
 
-    override fun attachView(t: T) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    var userView: T? = null
+    var compositeDisposable: CompositeDisposable
+
+    init {
+        compositeDisposable = CompositeDisposable()
     }
 
-    override fun detachView(t: T) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun attachView(t: T) {
+        userView = t
+    }
+
+    override fun detachView() {
+        userView = null
+        compositeDisposable.dispose()
     }
 
 }

@@ -1,16 +1,18 @@
 package com.example.chopper.rxwithretrofitandgroupie.ui
 
 import com.example.chopper.rxwithretrofitandgroupie.R
+import com.example.chopper.rxwithretrofitandgroupie.model.BaseResponse
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.list.view.*
 
-class UserItem() : Item<ViewHolder>() {
+class UserItem(val baseResponse: BaseResponse) : Item<ViewHolder>() {
 
     override fun getLayout(): Int = R.layout.list
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        viewHolder.itemView.tvName.text = baseResponse.name.first
     }
 
 }

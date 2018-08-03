@@ -7,20 +7,22 @@ import com.example.chopper.rxwithretrofitandgroupie.repository.UserRepositoryImp
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-class UserPresenter @Inject constructor(val userRepositoryImpl: UserRepositoryImpl, val userView: UserView) : BasePresenter<UserView>() {
+class UserPresenter @Inject constructor(val userRepositoryImpl: UserRepositoryImpl) : BasePresenter<UserView>() {
 
     fun fetchData() {
         userRepositoryImpl.fetchData(object : UserRepository.FetchDataCallback {
             override fun onSuccess(baseResponse: BaseResponse) {
-                userView.removeLoading()
+                userView?.hideLoading()
+                userView?.fetchDataResult(baseResponse)
             }
 
             override fun onSubscribe(disposable: Disposable) {
-                userView.showLoading()
+                compositeDisposable.add(disposable)
+                userView?.showLoading()
             }
 
             override fun onError(throwable: Throwable) {
-                userView.removeLoading()
+                userView?.hideLoading()
             }
         })
     }
