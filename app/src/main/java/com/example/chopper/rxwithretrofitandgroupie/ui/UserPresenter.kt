@@ -17,8 +17,8 @@ class UserPresenter @Inject constructor(val userRepositoryImpl: UserRepositoryIm
             }
 
             override fun onSubscribe(disposable: Disposable) {
-                compositeDisposable.add(disposable)
                 userView?.showLoading()
+                compositeDisposable.add(disposable)
             }
 
             override fun onError(throwable: Throwable) {

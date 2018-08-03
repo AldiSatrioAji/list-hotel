@@ -2,6 +2,7 @@ package com.example.chopper.rxwithretrofitandgroupie.repository
 
 import com.example.chopper.rxwithretrofitandgroupie.model.BaseResponse
 import com.example.chopper.rxwithretrofitandgroupie.network.NetworkService
+import com.github.ajalt.timberkt.Timber.d
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,6 +19,7 @@ class UserRepositoryImpl @Inject constructor (val networkService: NetworkService
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<BaseResponse> {
                     override fun onSuccess(t: BaseResponse) {
+                        d { "test : ${t.cell}" }
                         fetchDataCallback.onSuccess(t)
                     }
 
