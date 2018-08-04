@@ -23,7 +23,8 @@ class RetrofitModule {
 
     @Singleton
     @Provides
-    fun providesCall(retrofit: Retrofit) : NetworkService {
+    fun providesCall(retrofit: Retrofit): NetworkService {
         return retrofit.create(NetworkService::class.java)
     }
+
 }

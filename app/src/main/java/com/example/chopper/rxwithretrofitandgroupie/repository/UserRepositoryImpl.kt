@@ -19,7 +19,6 @@ class UserRepositoryImpl @Inject constructor (val networkService: NetworkService
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<BaseResponse> {
                     override fun onSuccess(t: BaseResponse) {
-                        d { "test : ${t.cell}" }
                         fetchDataCallback.onSuccess(t)
                     }
 
