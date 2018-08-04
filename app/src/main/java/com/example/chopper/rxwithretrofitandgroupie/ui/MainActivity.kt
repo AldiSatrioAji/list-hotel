@@ -41,8 +41,7 @@ class MainActivity : UserView, AppCompatActivity() {
 
     override fun fetchDataResult(baseResponse: BaseResponse) {
         val listUser = ArrayList(baseResponse.data)
-
-        listUser.map {
+        baseResponse.data.map {
             userAdapter = UserAdapter(it)
             group.add(userAdapter)
         }
