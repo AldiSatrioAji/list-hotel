@@ -22,7 +22,7 @@ class AppModule {
     @Provides
     fun providesInstance(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://randomuser.me/")
+                .baseUrl("http://private-b8cf44-androidcleancode.apiary-mock.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

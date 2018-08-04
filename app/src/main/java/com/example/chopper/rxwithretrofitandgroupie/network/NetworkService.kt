@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface NetworkService {
 
-    @GET("api/")
-    fun getUsersList(@Query("results") numOfUser: Int) : Single<BaseResponse>
+    @GET("v1/city")
+    fun getUsersList() : Single<BaseResponse>
 
 }

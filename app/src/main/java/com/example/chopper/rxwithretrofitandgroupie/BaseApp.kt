@@ -20,11 +20,6 @@ class BaseApp : Application(), HasActivityInjector {
                 .application(this)
                 .build()
                 .inject(this)
-//
-//        DaggerAppComponent.builder()
-//                .application(this)
-//                .build()
-//                .inject(this)
 
         if(BuildConfig.DEBUG){
             Timber.plant(Timber.DebugTree())

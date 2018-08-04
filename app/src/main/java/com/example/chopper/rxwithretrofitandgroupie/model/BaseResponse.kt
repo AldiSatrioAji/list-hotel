@@ -1,6 +1,7 @@
 package com.example.chopper.rxwithretrofitandgroupie.model
 
 data class BaseResponse(
-    val results: List<Result>,
-    val info: Info
+        val data: List<Data>,
+        val message: String,
+        val status: Int
 )

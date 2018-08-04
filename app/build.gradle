@@ -50,5 +50,5 @@ dependencies {
     kapt 'com.google.dagger:dagger-android-processor:2.11'
 
     implementation 'com.github.ajalt:timberkt:1.5.1'
-
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

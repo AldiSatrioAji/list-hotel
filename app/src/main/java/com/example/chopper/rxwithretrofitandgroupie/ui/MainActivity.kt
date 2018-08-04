@@ -19,7 +19,7 @@ class MainActivity : UserView, AppCompatActivity() {
     lateinit var userPresenter: UserPresenter
 
     private var group = GroupAdapter<ViewHolder>()
-    private lateinit var userItem: UserItem
+    private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +40,12 @@ class MainActivity : UserView, AppCompatActivity() {
     }
 
     override fun fetchDataResult(baseResponse: BaseResponse) {
-        userItem = UserItem(baseResponse)
-        group.add(userItem)
+        val listUser = ArrayList(baseResponse.data)
+
+        listUser.map {
+            userAdapter = UserAdapter(it)
+            group.add(userAdapter)
+        }
     }
 
     override fun showLoading() {
@@ -50,6 +54,11 @@ class MainActivity : UserView, AppCompatActivity() {
 
     override fun hideLoading() {
         pbBar.toGone()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        userPresenter.detachView()
     }
 
 }

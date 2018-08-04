@@ -11,10 +11,10 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class UserRepositoryImpl @Inject constructor (val networkService: NetworkService) : UserRepository{
+class UserRepositoryImpl @Inject constructor(val networkService: NetworkService) : UserRepository {
 
     override fun fetchData(fetchDataCallback: UserRepository.FetchDataCallback) {
-        return networkService.getUsersList(10)
+        return networkService.getUsersList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<BaseResponse> {
